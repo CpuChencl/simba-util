@@ -1,24 +1,16 @@
-¿ò¼ÜÊ¹ÓÃSpring Boot×÷Îª»ù´¡¿ò¼Ü£¬¼¯³ÉSpring Cloud¸÷Î¢·þÎñ×é¼þ£¬ÒÔ¼°·â×°ÁË³£ÓÃµÄ¸÷ÖÖ¹¦ÄÜ×é¼þ£¬ÒÔ¼°Í¨ÓÃÒµÎñÄ£¿é
-¹ÜÀíÏµÍ³¹¦ÄÜ
-1. »ú¹¹¹ÜÀí 2.ÓÃ»§¹ÜÀí 3.½ÇÉ«¹ÜÀí 4.È¨ÏÞ¹ÜÀí 5.²Ëµ¥¹ÜÀí 6.ÒµÎñ¹ÜÀí 7.×¢²áÀàÐÍ¹ÜÀí
-8. ×¢²á±í¹ÜÀí 9.Òì³£ÐÅÏ¢¹ÜÀí 10.ÈÕÖ¾¹ÜÀí 11.ÈÎÎñ¹ÜÀí 12.Êý¾Ý¿â¼à¿Ø 13¡£ÏîÄ¿°æ±¾¹ÜÀí 14.´´½¨ÏîÄ¿
-15. App°æ±¾¹ÜÀí 16.ÎÄ¼þ¹ÜÀíµÈ
-
-ÏîÄ¿ÌØµã
-1. »ùÓÚSpringBoot,¼ò»¯ÁË´óÁ¿ÏîÄ¿ÅäÖÃºÍmavenÒÀÀµ,ÈÃÄú¸ü×¨×¢ÓÚÒµÎñ¿ª·¢,¶ÀÌØµÄ·Ö°ü·½Ê½,´úÂë¶à¶ø²»ÂÒ
-2. ÍêÉÆµÄÈÕÖ¾¼ÇÂ¼ÌåÏµ£¬¿É¼ÇÂ¼µÇÂ¼ÈÕÖ¾£¬ÒµÎñ²Ù×÷ÈÕÖ¾£¬Òì³£ÈÕÖ¾ÓÊ¼þÌáÐÑ
-3. ¼¯³Éredis£¬Spring cache£¬ÌáÉýÔËÐÐËÙ¶È
-4. ÄÚÖÃºóÌ¨¹ÜÀíÏµÍ³µÄ»ù´¡¹¦ÄÜºÍ¸ßÐ§µÄ´úÂëÉú³É¹¤¾ß£¬Ò»¼üÉú³ÉCRUD¼°Ò³Ãæ
-5. ¿ØÖÆÆ÷²ãÍ³Ò»µÄÒì³£À¹½Ø»úÖÆ
-6. ¼¯³Éwebsocket¡¢thirft¡¢groovy¡¢ftp¡¢httpclient¡¢officeµÈ¸÷ÖÖ¹¤¾ß
-7. ¼¯³Éspring cloud£¬¿ÉÒÔ¼à¿ØËùÓÐÏµÍ³µÄÔËÐÐÇé¿ö£¬Òì³£Çé¿öÓÊ¼þÌáÐÑ
-8. ¼¯³É°Ù¶Èai½Ó¿Ú
-9. ¼¯³É¼«¹â¶ÌÐÅ¡¢°¢ÀïÔÆ¶ÌÐÅ·þÎñ
-10. ¼¯³É°¢ÀïÔÆoss·Ö²¼Ê½ÎÄ¼þÏµÍ³
-11. ¼¯³Ézookeeper
-12. ¼¯³ÉÎ¢ÐÅ¹«ÖÚºÅ¡¢Î¢ÐÅÓ²¼þÆ½Ì¨
-13. ¼¯³Éspring cloudÓ¦ÓÃÍø¹Ø
-14. ¼¯³É°Ù¶ÈÔÚÏß±à¼­Æ÷ueditor
-15. ·Ö²¼Ê½session
-16. ÈÛ¶Ï»úÖÆ,·þÎñ×¢²áÓëµ÷ÓÃ,¸ºÔØ¾ùºâ
-17. »ùÓÚRedisºÍzookeeperµÄ·Ö²¼Ê½ËøµÈ
+æ¡†æž¶ä½¿ç”¨Spring Bootä½œä¸ºåŸºç¡€æ¡†æž¶ï¼Œé›†æˆSpring Cloudå„å¾®æœåŠ¡ç»„ä»¶ï¼Œä»¥åŠå°è£…äº†å¸¸ç”¨çš„å„ç§åŠŸèƒ½ç»„ä»¶ï¼Œä»¥åŠé€šç”¨ä¸šåŠ¡æ¨¡å—
+ç®¡ç†ç³»ç»ŸåŠŸèƒ½
+é¡¹ç›®ç‰¹ç‚¹
+1. åŸºäºŽSpringBoot,ç®€åŒ–äº†å¤§é‡é¡¹ç›®é…ç½®å’Œmavenä¾èµ–,è®©æ‚¨æ›´ä¸“æ³¨äºŽä¸šåŠ¡å¼€å‘,ç‹¬ç‰¹çš„åˆ†åŒ…æ–¹å¼,ä»£ç å¤šè€Œä¸ä¹±
+2. å®Œå–„çš„æ—¥å¿—è®°å½•ä½“ç³»ï¼Œå¯è®°å½•ç™»å½•æ—¥å¿—ï¼Œä¸šåŠ¡æ“ä½œæ—¥å¿—ï¼Œå¼‚å¸¸æ—¥å¿—é‚®ä»¶æé†’
+3. é›†æˆredisï¼ŒSpring cacheï¼Œæå‡è¿è¡Œé€Ÿåº¦
+6. é›†æˆwebsocketã€ftpã€httpclientã€officeç­‰å„ç§å·¥å…·
+7. é›†æˆspring cloudï¼Œå¯ä»¥ç›‘æŽ§æ‰€æœ‰ç³»ç»Ÿçš„è¿è¡Œæƒ…å†µï¼Œå¼‚å¸¸æƒ…å†µé‚®ä»¶æé†’
+8. é›†æˆç™¾åº¦aiæŽ¥å£
+9. é›†æˆæžå…‰çŸ­ä¿¡ã€é˜¿é‡Œäº‘çŸ­ä¿¡æœåŠ¡
+10. é›†æˆé˜¿é‡Œäº‘ossåˆ†å¸ƒå¼æ–‡ä»¶ç³»ç»Ÿ
+11. é›†æˆzookeeper
+13. é›†æˆspring cloudåº”ç”¨ç½‘å…³
+15. åˆ†å¸ƒå¼session
+16. ç†”æ–­æœºåˆ¶,æœåŠ¡æ³¨å†Œä¸Žè°ƒç”¨,è´Ÿè½½å‡è¡¡
+17. åŸºäºŽRediså’Œzookeeperçš„åˆ†å¸ƒå¼é”ç­‰
