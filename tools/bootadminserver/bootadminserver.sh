@@ -1,0 +1,1 @@
+nohup   java -jar bootadminserver.jar &

@@ -1,0 +1,405 @@
+
+#user  nobody;
+worker_processes  4;
+
+#error_log  logs/error.log;
+#error_log  logs/error.log  notice;
+#error_log  logs/error.log  info;
+
+#pid        logs/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+    #                  '$status $body_bytes_sent "$http_referer" '
+    #                  '"$http_user_agent" "$http_x_forwarded_for"';
+
+    #access_log  logs/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    #keepalive_timeout  0;
+    keepalive_timeout  300;
+    client_header_timeout 300s;      
+    client_body_timeout 300s;         
+    client_max_body_size 500m;        
+    client_body_buffer_size 256k;   
+
+    gzip  on;
+
+    map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+  }
+upstream vux {  
+	 server 127.0.0.1:8080;  
+	} 
+
+        upstream mock {  
+	 server 192.168.75.62:4567;  
+	} 
+
+	  upstream user {  
+	 server 192.168.75.62:8401;  
+	} 
+
+	 upstream useradmin {  
+	 server 192.168.75.62:8400;  
+	} 
+
+	 upstream versionadmin {  
+	 server 192.168.75.62:8500;  
+	} 
+
+	upstream versionuser {  
+	 server 192.168.75.62:8501;  
+	} 
+
+	 upstream switchadmin {  
+	 server 192.168.75.62:8300;  
+	} 
+
+	upstream switchuser {  
+	 server 192.168.75.62:8301;  
+	} 
+
+	 upstream realtimeadmin {  
+	 server 192.168.75.62:8200;  
+	} 
+
+	upstream realtimeuser {  
+	ip_hash;
+	 server 192.168.75.62:8201;  
+	} 
+
+	 upstream wxadmin {  
+	 server 192.168.75.62:8600;  
+	} 
+
+	upstream wxuser {  
+	 server 192.168.75.62:8601;  
+	} 
+
+	 upstream productadmin {  
+	 server 192.168.75.62:8100;  
+	} 
+
+	upstream productuser {  
+	 server 192.168.75.62:8101;  
+	} 
+
+	upstream devicemonitoradmin {  
+	 server 192.168.75.62:8000;  
+	} 
+
+	upstream devicemonitoruser {  
+	 server 192.168.75.25:8001;  
+	} 
+
+
+    server {
+        listen       80;
+        server_name  localhost;
+	
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            #root   D:/SmartHomePlatform/trunk/wxvux/dist;
+            index  index.html index.htm;
+	     proxy_pass        http://vux;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	 location /mock {
+            index  index.html index.htm;
+	    proxy_pass        http://mock;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	 location /user {
+            index  index.html index.htm;
+	    proxy_pass        http://user;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	 location /useradmin {
+            index  index.html index.htm;
+	    proxy_pass        http://useradmin;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	 location /versionadmin {
+            index  index.html index.htm;
+	    proxy_pass        http://versionadmin;        
+             client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	 location /versionuser {
+            index  index.html index.htm;
+	    proxy_pass        http://versionuser;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /switchadmin {
+            index  index.html index.htm;
+	    proxy_pass        http://switchadmin;        
+             client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /switchuser {
+            index  index.html index.htm;
+	    proxy_pass        http://switchuser;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /realtimeadmin {
+            index  index.html index.htm;
+	    proxy_pass        http://realtimeadmin;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /realtimeuser {
+            index  index.html index.htm;
+	    proxy_pass        http://realtimeuser;     
+	     client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+	    proxy_http_version 1.1;
+	    proxy_set_header Upgrade $http_upgrade;
+	    proxy_set_header Connection $connection_upgrade;
+        }
+
+	location /wxadmin {
+            index  index.html index.htm;
+	    proxy_pass        http://wxadmin;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /wxuser {
+            index  index.html index.htm;
+	    proxy_pass        http://wxuser;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /productadmin {
+            index  index.html index.htm;
+	    proxy_pass        http://productadmin;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /productuser {
+            index  index.html index.htm;
+	    proxy_pass        http://productuser;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /devicemonitoradmin {
+            index  index.html index.htm;
+	    proxy_pass        http://devicemonitoradmin;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+	location /devicemonitoruser {
+            index  index.html index.htm;
+	    proxy_pass        http://devicemonitoruser;        
+            client_max_body_size  500m;  
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Real-Port $remote_port;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_connect_timeout   300;         #这三个超时时间适量调大点      
+            proxy_send_timeout      600;        
+            proxy_read_timeout      600;
+        }
+
+
+
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+
+        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+        #
+        #location ~ \.php$ {
+        #    proxy_pass   http://127.0.0.1;
+        #}
+
+        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+        #
+        #location ~ \.php$ {
+        #    root           html;
+        #    fastcgi_pass   127.0.0.1:9000;
+        #    fastcgi_index  index.php;
+        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+        #    include        fastcgi_params;
+        #}
+
+        # deny access to .htaccess files, if Apache's document root
+        # concurs with nginx's one
+        #
+        #location ~ /\.ht {
+        #    deny  all;
+        #}
+    }
+
+
+    # another virtual host using mix of IP-, name-, and port-based configuration
+    #
+    #server {
+    #    listen       8000;
+    #    listen       somename:8080;
+    #    server_name  somename  alias  another.alias;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+
+    # HTTPS server
+    #
+    #server {
+    #    listen       443 ssl;
+    #    server_name  localhost;
+
+    #    ssl_certificate      cert.pem;
+    #    ssl_certificate_key  cert.key;
+
+    #    ssl_session_cache    shared:SSL:1m;
+    #    ssl_session_timeout  5m;
+
+    #    ssl_ciphers  HIGH:!aNULL:!MD5;
+    #    ssl_prefer_server_ciphers  on;
+
+    #    location / {
+    #        root   html;
+    #        index  index.html index.htm;
+    #    }
+    #}
+
+}

@@ -1,0 +1,3 @@
+<#list list as job>
+insert into job(id,name,description,cronExpression,startTime,endTime,exeCount,maxExeCount,status,className,methodName,delayTime,intervalTime) values(${job.id},'${job.name}','${job.description}','${job.cronExpression}','${job.startTime}','${job.endTime}',${job.exeCount},${job.maxExeCount},'${job.status}','${job.className}','${job.methodName}',${job.delayTime},${job.intervalTime});
+</#list>

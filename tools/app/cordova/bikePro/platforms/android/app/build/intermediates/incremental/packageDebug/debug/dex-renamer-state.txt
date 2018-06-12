@@ -1,0 +1,4 @@
+#Mon Apr 09 14:42:49 CST 2018
+base.0=F\:\\AllSpace\\Cordova\\bikePro\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+renamed.0=classes.dex
+file.0=F\:\\AllSpace\\Cordova\\bikePro\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0\\classes.dex

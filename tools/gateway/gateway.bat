@@ -1,0 +1,1 @@
+java -Xms200m -Xmx800m -XX:PermSize=200m -XX:MaxPermSize=800m -jar gateway.jar
